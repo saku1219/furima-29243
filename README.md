@@ -23,7 +23,6 @@
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
 | name                  | string     | null: false                    |
-| image                 | text       | null: false                    |
 | price                 | integer    | null: false                    |
 | description           | text       | null: false                    |
 | category_id           | integer    | null: false                    |
@@ -37,6 +36,7 @@
 
 belongs_to :user
 has_one :order
+has_one_attached :image
 
 ## comments テーブル
 
