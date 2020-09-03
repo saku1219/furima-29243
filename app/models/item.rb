@@ -1,7 +1,16 @@
 class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :category, :condition, :shipping_payer, :shipping_from_area, :shipping_duration
 
+  belongs_to :user 
 
-  belongs_to :user has_one :order
+  with_options presence: true do
+    validates :name
+    validates :image
+    validates :price
+    validates :description
+    validates :category_id
+    validates :condition_id
+    validates :shipping_payer_id
+    validates :shipping_from_area_id
+    validates :shipping_duration_id
+  end
 end
