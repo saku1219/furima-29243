@@ -10,6 +10,9 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
+  
+  def edit
+  end
 
   def create
     @item = Item.new(item_params)
