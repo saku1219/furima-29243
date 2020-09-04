@@ -5,7 +5,7 @@ RSpec.describe Item, type: :model do
     @item = FactoryBot.build(:item)
     @item.image = fixture_file_upload('public/images/test_image.png')
   end
-  
+
   describe '商品出品登録' do
     it 'すべての値が正しく入力されていれば、登録できる' do
       expect(@item).to be_valid
@@ -16,59 +16,59 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Image can't be blank")
     end
     it '商品名の記載がない場合、登録できない' do
-      @item.name = ""
+      @item.name = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Name can't be blank")
     end
     it '商品の説明の記載がない場合、登録できない' do
-      @item.description = ""
+      @item.description = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Description can't be blank")
     end
     it 'カテゴリーが選択されていない場合、登録できない' do
-      @item.category_id = "1"
+      @item.category_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category is invalid")
+      expect(@item.errors.full_messages).to include('Category is invalid')
     end
     it '商品の状態が選択されていない場合、登録できない' do
-      @item.condition_id = "1"
+      @item.condition_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Condition is invalid")
+      expect(@item.errors.full_messages).to include('Condition is invalid')
     end
     it '配送料の負担が選択されていない場合、登録できない' do
-      @item.shipping_payer_id = "1"
+      @item.shipping_payer_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping payer is invalid")
+      expect(@item.errors.full_messages).to include('Shipping payer is invalid')
     end
     it '発送元の地域が選択されていない場合、登録できない' do
-      @item.shipping_from_area_id = "1"
+      @item.shipping_from_area_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping from area is invalid")
+      expect(@item.errors.full_messages).to include('Shipping from area is invalid')
     end
     it '発送までの日数が選択されていない場合、登録できない' do
-      @item.shipping_duration_id = "1"
+      @item.shipping_duration_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping duration is invalid")
+      expect(@item.errors.full_messages).to include('Shipping duration is invalid')
     end
     it '価格の記載がない場合、登録できない' do
-      @item.price = ""
+      @item.price = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
     it '価格が￥300未満の場合、登録できない' do
-      @item.price = "299"
+      @item.price = '299'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price must be greater than 299")
+      expect(@item.errors.full_messages).to include('Price must be greater than 299')
     end
     it '価格が￥10000000以上の場合、登録できない' do
-      @item.price = "10000000"
+      @item.price = '10000000'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price must be less than 10000000")
+      expect(@item.errors.full_messages).to include('Price must be less than 10000000')
     end
     it '価格が半角数字以外の場合、登録できない' do
-      @item.price = "１０００"
+      @item.price = '１０００'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not a number")
+      expect(@item.errors.full_messages).to include('Price is not a number')
     end
   end
 end
