@@ -34,9 +34,9 @@
 
 ### Association
 
-belongs_to :user
-has_one :order
-has_one_attached :image
+- belongs_to :user
+- has_one :order
+- has_one_attached :image
 
 ## comments テーブル
 
@@ -48,8 +48,8 @@ has_one_attached :image
 
 ### Association
 
-belongs_to :user
-belongs_to :item
+- belongs_to :user
+- belongs_to :item
 
 ## orders テーブル
 
@@ -60,9 +60,9 @@ belongs_to :item
 
 ### Association
 
-belongs_to :user
-belongs_to :item
-has_one :address
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 ## Addressed テーブル
 
@@ -78,4 +78,4 @@ has_one :address
 
 ### Association
 
-belongs_to :order
+- belongs_to :order
