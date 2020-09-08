@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
 
   def move_to_index
     order = Order.find_by item_id: @item.id
-    if !order.nil? || !user_signed_in?
+    if !order.nil? || !user_signed_in? || current_user.id == @item.user_id
       redirect_to "/items"
     end
   end
