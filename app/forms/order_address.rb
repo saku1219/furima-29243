@@ -4,11 +4,12 @@ class OrderAddress
   attr_accessor :token, :postal_code, :prefecture_id, :city, :house_number, :building_name, :tell
 
   with_options presence: true do
-    validates :postal_code
-    validates :prefecture_id
+    validates :token
+    validates :postal_code,      format: { with: /\A\d{3}[-]\d{4}\z/ }
+    validates :prefecture_id,    numericality: { other_than: 1, message: 'is invalid' }
     validates :city
     validates :house_number
-    validates :tell
+    validates :tell,             numericality: { only_integer: true, }
   end
 
   def save(item_id, user_id)
