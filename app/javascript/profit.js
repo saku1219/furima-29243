@@ -13,5 +13,6 @@ function profitCalc() {
     gain.innerHTML = profitI;
 });
 }
-
-window.addEventListener("load", profitCalc)
+if (document.URL.match( /new/ )) {
+  window.addEventListener("load", profitCalc)
+}
