@@ -6,13 +6,13 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
       const imageElement = document.createElement('div');
       const blobImage = document.createElement('img');
       blobImage.setAttribute('src', blob);
-      blobImage.setAttribute('class', 'item-img');
+      blobImage.setAttribute('class', 'item-preview-img');
       
       imageElement.appendChild(blobImage);
       imageList.appendChild(imageElement);
     };
     document.getElementById('item-image').addEventListener('change', function(e){
-      const imageContent = document.querySelector('.item-img');
+      const imageContent = document.querySelector('.item-preview-img');
       if (imageContent){
         imageContent.remove();
       }
